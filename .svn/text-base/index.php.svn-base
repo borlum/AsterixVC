@@ -1,0 +1,58 @@
+<?php
+/**
+ * index.php
+ * => The main file of the Course List Export tool
+ */
+
+/*----DEPENDENCIES----*/
+//Moodles config file
+require_once(dirname(__FILE__) . '/../../config.php');
+//Category and Course classes
+require_once(dirname(__FILE__) . '/Classes/Category.php');
+require_once(dirname(__FILE__) . '/Classes/Course.php');
+//EXCEL-library
+include("XLSexport/xlswriter.php");
+//Access to METDB
+include("MET/accessMETDB.php");
+//Controller class
+require_once(dirname(__FILE__) . '/Classes/Controller.php');
+//Router class
+require_once(dirname(__FILE__) . '/Classes/Router.php');
+//Custom CLE Controller
+require_once(dirname(__FILE__) . '/controllers/CLE_controller.php');
+
+/*----CONFIG----*/
+$CONFIG = array('default_ctrl' => 'CLE_controller');
+
+/*----ROUTER----*/
+$router = new Router();
+
+/*----MOODLE LAYOUT----*/
+//Get the Moodle system-level context
+$context = get_context_instance(CONTEXT_SYSTEM, SITEID);
+
+//The $PAGE object handles Moodle layout.
+//Set the title and heading via get_string method, which loads strings from the language files
+$PAGE->set_title(get_string('pluginname','block_course_list_export'));
+
+//Handle breadcrumbs
+$PAGE->navbar->ignore_active();
+$PAGE->navbar->add(get_string('pluginname', 'block_course_list_export'), new moodle_url());
+
+//Output through the $OUTPUT object.
+echo $OUTPUT->header();
+//echo $OUTPUT->heading(get_string('viewCourses','block_course_list_export'));
+
+/*----WHOOP WHOOP ROUTING ----*/
+$url = $_SERVER['PATH_INFO'];
+
+$url = explode('/', $url);
+
+$controller = $url[1];
+$action = $url[2];
+
+//Routing works!
+echo $router->route($controller, $action);
+
+//Moodle output footer
+echo $OUTPUT->footer();
