@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>AsterixVC by roevhat</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>AsterixVC</h1>
+        <p>A  less-than 100 SLOC VC framework; MVC without the models.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/roevhat/AsterixVC" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/roevhat/AsterixVC/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/roevhat/AsterixVC/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="asterix-vc---a-php-framework-in-less-than-100-lines-of-code" class="anchor" href="#asterix-vc---a-php-framework-in-less-than-100-lines-of-code"><span class="octicon octicon-link"></span></a>Asterix VC - A PHP Framework in less than 100 lines of code.</h1>
+
+<p>AsterixVC, or *VC, is a small MVC framework without the M - so no implementation of models.
+It was built during plugin development, where the plugin suddenly grew out of hands to just be single files of PHP. The framework gives added structure to small projects.</p>
+
+<h2>
+<a name="how-to-use-it" class="anchor" href="#how-to-use-it"><span class="octicon octicon-link"></span></a>How to use it</h2>
+
+<p>If you are not familiar with existing PHP (M)VC frameworks, then fear not. The project tree looks like this:</p>
+
+<pre><code>.
+├── Classes
+│   ├── Controller.php
+│   └── Router.php
+├── controllers
+│   └── Hello_controller.php
+├── index.php
+├── README.md
+└── views
+    └── view_hello.php
+</code></pre>
+
+<p>The Classes-folder is not to be touched, unless you wan't to further develop on the framework. This is recommended. The framework is bare minimum - so please, customize to your needs.</p>
+
+<p>The controllers-folder is where you will be creating controllers. Take a look at the included Hello_controller.php, it should get you started.</p>
+
+<p>The views-folder is where you will be creating views. Take a look at the included view_hello.php, it should get you started aswell.</p>
+
+<p>The index.php combines it all - including the classes, setting up the router and so on.</p>
+
+<h2>
+<a name="go-nuts" class="anchor" href="#go-nuts"><span class="octicon octicon-link"></span></a>Go nuts!</h2>
+
+<p>And thats about it - if more documentation is needed, look through the source. It is not well-documented, but it should be understandable. Otherwise, contact me:</p>
+
+<pre><code>joakim (at) roevhat.dk
+@roevhat
+</code></pre>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/roevhat">roevhat</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
