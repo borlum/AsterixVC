@@ -5,7 +5,23 @@
  */
 
 class Controller {
-    function view($file,$data){
+    private $dbh = NULL;
+
+    function query($sql) {
+        try {
+            $this->dbh = new PDO('sqlite:/' . dirname(__FILE__) . '/../data.db');
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        $data = $this->dbh->query($sql);
+
+        $this->dbh = NULL;
+
+        return $data;
+    }
+
+    function view($file,$data) {
         $file = dirname(__FILE__) . '/../views/' . $file;
         extract($data);
         ob_start();
@@ -17,7 +33,7 @@ class Controller {
         return $return;
     }
 
-    function url($path){
+    function url($path) {
         return $_SERVER['REQUEST_URI'] . '/' . $path;
     }
 }

@@ -8,6 +8,12 @@ class Hello_controller extends Controller {
 
 	function index(){ 
         $data['hello'] = 'Hello, World!';
+
+        $sql = "SELECT * FROM foo";
+    	foreach ($this->query($sql) as $row) {
+        	print $row['bar1'] .' - '. $row['bar2'] . '<br />';
+        }
+
         echo $this->view('view_hello.php', $data);
     }
 }

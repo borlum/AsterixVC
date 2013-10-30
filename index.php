@@ -30,3 +30,6 @@ $action = $url[2];
 
 //Routing works!
 echo $router->route($controller, $action);
+
+//Close DB connection
+$dbh = NULL;
