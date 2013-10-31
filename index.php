@@ -21,15 +21,14 @@ $CONFIG = array('default_ctrl' => 'Hello_controller');
 $router = new Router();
 
 /*----WHOOP WHOOP ROUTING (Should be moved...) ----*/
-$url = $_SERVER['PATH_INFO'];
+$controller = '';
+$action     = '';
 
-$url = explode('/', $url);
-
-$controller = $url[1];
-$action = $url[2];
+if (array_key_exists('PATH_INFO', $_SERVER)) {
+    $url = explode('/', $url);
+	$controller = $url[1];
+	$action = $url[2];
+}
 
 //Routing works!
 echo $router->route($controller, $action);
-
-//Close DB connection
-$dbh = NULL;

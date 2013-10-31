@@ -8,17 +8,37 @@ class Controller {
     private $dbh = NULL;
 
     function query($sql) {
+        $this->openConn();
+        
+        $data = $this->dbh->query($sql);
+
+        $this->closeConn();
+
+        return $data;
+    }
+
+    function exec($sql) {
+        $this->openConn();
+
+        $count =  $this->dbh->exec($sql);
+
+        $this->closeConn();
+
+        return $count;
+    }
+
+    function openConn() {
         try {
             $this->dbh = new PDO('sqlite:/' . dirname(__FILE__) . '/../data.db');
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
 
-        $data = $this->dbh->query($sql);
+        return 0;
+    }
 
-        $this->dbh = NULL;
-
-        return $data;
+    function closeConn() {
+        $this->dbh = NULL; return 0;
     }
 
     function view($file,$data) {
